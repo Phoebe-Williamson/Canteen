@@ -1,0 +1,40 @@
+/* CSS Style Sheet */
+
+.grid {
+    width: 1080px;
+    /* Declare the grid container */
+    display: grid;
+    grid-template-columns: 23.3333333333% 10% 23.3333333333% 10% 23.3333333333% 10%;
+    grid-template-rows: 25% 37.5% 37.5%;
+}
+
+.header{
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.navigation{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+.weeklyspecial{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.food{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.drinks{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
