@@ -1,40 +1,99 @@
 /* CSS Style Sheet */
 
-.grid {
-    width: 1080px;
+.grid{
+    width: 1520px;
+    height: 840px;
     /* Declare the grid container */
     display: grid;
-    grid-template-columns: 23.3333333333% 10% 23.3333333333% 10% 23.3333333333% 10%;
-    grid-template-rows: 25% 37.5% 37.5%;
+    grid-template-columns: 13.3333333333%  10% 23.3333333333% 10% 23.3333333333% 10% 10%;
+    grid-template-rows: 25% 25% 5% 25% 15% 5%;
+    border-color: black;
+    border-width: 30px;
 }
 
+/* grid sections for all pages */
 .header{
+    text-align: center;
     grid-column-start: 1;
-    grid-column-end: 7;
+    grid-column-end: 8;
     grid-row-start: 1;
     grid-row-end: 2;
+    background-color: teal;
 }
-.navigation{
+.logo{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-content: center;
+}
+.nav{
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 5;
 }
+.footer{
+    color: white;
+    background-color: black;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+
+/* Home page grid */
 .weeklyspecial{
-    grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 7;
     grid-row-start: 2;
     grid-row-end: 3;
+    background-color: grey;
 }
 .food{
-    grid-column-start: 3;
+    grid-column-start: 2;
     grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: grey;
 }
 .drinks{
     grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 4;
     grid-row-end: 5;
+    background-color: grey;
 }
+
+/* drinks page grid */
+.drink1 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: grey;
+}
+.drink2 {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: grey;
+}
+.drink3 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: grey;
+}
+.drink4 {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: grey;
+}
+
+/* food page grid*/

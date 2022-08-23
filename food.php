@@ -19,17 +19,37 @@ $all_food_result = mysqli_query($dbcon, $all_food_query);
 <head>
     <meta charset="utf-8">
     <title>Food Page - WGC Canteen</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="grid">
     <div class="header">
         <h1>Wellington Girls' College Canteen</h1>
+        <h2> Foods </h2>
     </div>
+    <div class="nav">
+        <nav>
+            <ul>
+                <li> <a href="home.php"> Home </a> </li>
+                <li> <a href="drinks.php"> Drinks </a> </li>
+                <li> <a href="food.php"> Food </a> </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="weeklyspecial">
+        weekly specails
+    </div>
+    <div class="food">
+        food
+    </div>
+    <div class="drinks">
+        drinks
+    </div>
+</div>
 
-
-
-
+<?php
+Echo "fuck you";
+?>
 
 
 
