@@ -22,6 +22,11 @@ else {
         <h1>Wellington Girls' College Canteen</h1>
         <h2> Drinks </h2>
     </div>
+    <div class="logo">
+        <a href="home.php">
+            <img src="Images/wgclogo.png" width="121.5" height="121.5">
+        </a>
+    </div>
     <div class="nav">
         <nav>
             <ul>

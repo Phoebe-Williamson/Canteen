@@ -1,5 +1,5 @@
 <?php
-/* Conetect to the database */
+/* Connected to the database */
 $dbcon = mysqli_connect("localhost", "williamsonph", "spicyhall22", "williamsonph_canteen");
 if($dbcon == NULL){
     echo "Failed to connect to MySQL:".mysqli_connect_error();
@@ -27,6 +27,11 @@ $all_food_result = mysqli_query($dbcon, $all_food_query);
         <h1>Wellington Girls' College Canteen</h1>
         <h2> Foods </h2>
     </div>
+    <div class="logo">
+        <a href="home.php">
+            <img src="Images/wgclogo.png" width="121.5" height="121.5">
+        </a>
+    </div>
     <div class="nav">
         <nav>
             <ul>
@@ -37,22 +42,14 @@ $all_food_result = mysqli_query($dbcon, $all_food_query);
         </nav>
     </div>
     <div class="weeklyspecial">
-        weekly specails
+        hamburger
     </div>
     <div class="food">
-        food
+        chicken nuggets
     </div>
     <div class="drinks">
-        drinks
+        nachos
     </div>
-</div>
-
-<?php
-Echo "fuck you";
-?>
-
-
-
 </div>
 </body>
 </html>
