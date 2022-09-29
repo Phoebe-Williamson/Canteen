@@ -4,14 +4,20 @@ $dbcon = mysqli_connect("localhost", "williamsonph", "spicyhall22", "williamsonp
 if($dbcon == NULL){
     echo "Failed to connect to MySQL:".mysqli_connect_error();
     die();}
-else {
-    echo "connected to database";}
+else{
+    $database_connection = TRUE;}
 
-/*SQL query to return all drinks */
-
-$all_food_query = "SELECT FoodID, food, cost from food";
-$all_food_result = mysqli_query($dbcon, $all_food_query);
+$food_query = "SELECT food, cost, description, df, gf, v 
+               FROM food 
+               WHERE avalible = 'yes'";
+$food_result = mysqli_query($dbcon, $food_query);
+$not_availabale_food_query ="SELECT food, cost, df, gf, v 
+                             FROM food 
+                             WHERE avalible = 'no'";
+$not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
 ?>
+
+
 <!DOCTYPE html>
 <!-- -->
 <!--Html code -->
@@ -28,27 +34,60 @@ $all_food_result = mysqli_query($dbcon, $all_food_query);
         <h2> Foods </h2>
     </div>
     <div class="logo">
-        <a href="home.php">
+        <aone href="home.php">
             <img src="Images/wgclogo.png" width="121.5" height="121.5">
-        </a>
+        </aone>
     </div>
     <div class="nav">
         <nav>
-            <ul>
-                <li> <a href="home.php"> Home </a> </li>
-                <li> <a href="drinks.php"> Drinks </a> </li>
-                <li> <a href="food.php"> Food </a> </li>
-            </ul>
+            <a href="home.php"> Home </a>
+            <a href="drinks.php"> Drinks </a>
+            <a href="food.php"> Food </a>
         </nav>
     </div>
-    <div class="weeklyspecial">
-        hamburger
+    <div class="foodleft">
+        <h2> Available</h2>
+        <?php
+        while($food_record = mysqli_fetch_assoc($food_result)){
+            echo "<br>" . $food_record['food'] . ":<br>";
+            echo "Price :$". $food_record['cost'] . "<br>";
+            /* echo "Desrciption: " . $food_record['description'] . "<br>"; */
+            if($food_record['df'] == 'yes') {
+                echo "--- Dairy Free ---" . "<br>";
+            }
+            if($food_record['gf'] == 'yes'){
+                echo "--- Gluten Free ---" . "<br>";
+            }
+            if($food_record['v'] == 'yes'){
+                echo "--- Vegetarian ---" . "<br>";
+            }
+        }
+        ?>
     </div>
-    <div class="food">
-        chicken nuggets
+    <div class="foodright">
+        <h2>Not Available:</h2>
+        <?php
+        while($not_availabale_food_record = mysqli_fetch_assoc($not_availabale_food_result)){
+            echo "<br>" . $not_availabale_food_record['food'] . ":<br>";
+            echo "Price :$". $not_availabale_food_record['cost'] . "<br>";
+            /* echo "Desrciption: " . $not_available_food_record['description'] . "<br>"; */
+            if($not_availabale_food_record['df'] == 'yes') {
+                echo "--- Dairy Free ---" . "<br>";
+            }
+            if($not_availabale_food_record['gf'] == 'yes'){
+                echo "--- Gluten Free ---" . "<br>";
+            }
+            if($not_availabale_food_record['v'] == 'yes'){
+                echo "--- Vegetarian ---" . "<br>";
+            }
+        }
+        ?>
     </div>
-    <div class="drinks">
-        nachos
+    <div class="footer">
+        <?php
+        if($database_connection == TRUE){
+            echo "connected to database";}
+        ?>
     </div>
 </div>
 </body>

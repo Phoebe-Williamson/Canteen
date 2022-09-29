@@ -58,9 +58,9 @@ $drink_special_result = mysqli_query($dbcon, $drink_special_query)
         <h1>Wellington Girls' College Canteen</h1>
     </div>
     <div class="logo">
-        <a href="home.php">
+        <aone href="home.php">
             <img src="Images/wgclogo.png" width="121.5" height="121.5">
-        </a>
+        </aone>
     </div>
     <div class="nav">
         <br>
