@@ -34,15 +34,16 @@ $not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
         <h2> Foods </h2>
     </div>
     <div class="logo">
-        <aone href="home.php">
+        <a class="two" href="home.php">
             <img src="Images/wgclogo.png" width="121.5" height="121.5">
-        </aone>
+        </a>
     </div>
     <div class="nav">
         <nav>
-            <a href="home.php"> Home </a>
-            <a href="drinks.php"> Drinks </a>
-            <a href="food.php"> Food </a>
+            <a class ="one" href="home.php"> Home </a>
+            <a class ="one" href="drinks.php"> Drinks </a>
+            <a class ="one" href="food.php"> Food </a>
+            <a class ="one" href="diets.php"> Diets</a>
         </nav>
     </div>
     <div class="foodleft">
@@ -51,7 +52,6 @@ $not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
         while($food_record = mysqli_fetch_assoc($food_result)){
             echo "<br>" . $food_record['food'] . ":<br>";
             echo "Price :$". $food_record['cost'] . "<br>";
-            /* echo "Desrciption: " . $food_record['description'] . "<br>"; */
             if($food_record['df'] == 'yes') {
                 echo "--- Dairy Free ---" . "<br>";
             }

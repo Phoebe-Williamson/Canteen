@@ -46,11 +46,14 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
             <a class ="one" href="home.php"> Home </a>
             <a class ="one" href="drinks.php"> Drinks </a>
             <a class ="one" href="food.php"> Food </a>
+            <a class ="one" href="diets.php"> Diets</a>
         </nav>
     </div>
     <div class="special">
         <h2>Diets</h2>
         <p>Click a diet option to choose a diet</p>
+        <!-- I have gotten the information for the buttons from  geeksforgeeks, the link being:
+             https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
         <form method="post">
             <input type="submit" name="Gluten"
                    value="Gluten Free"/>
@@ -61,18 +64,31 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
         </form>
         <p>------------------------------------------------</p>
         <?php
-        if(isset($_POST['Gluten'])){
+        if(isset($_POST['Gluten'])) {
             echo "<h3>Gluten Free Food </h3>";
-            while($gluten_free_record = mysqli_fetch_assoc($gluten_free_result)) {
+            while ($gluten_free_record = mysqli_fetch_assoc($gluten_free_result)) {
                 echo "<br>" . $gluten_free_record['food'] . ":<br>";
                 echo "Price: $" . $gluten_free_record['cost'] . "<br>";
+                if ($gluten_free_record['avalible'] == 'no') {
+                    echo "--- Not Avalible ---" . "<br>";
+                }
+                if ($gluten_free_record['avalible'] == 'yes') {
+                    echo "--- Avalible ---" . "<br>";
+                }
             }
+            echo "<h3>All drinks are Gluten Free</h3>";
         }
-        if(isset($_POST['Dairy'])){
+        if(isset($_POST['Dairy'])) {
             echo "<h3>Dairy Free products:</h3>";
-            while($dairy_free_record = mysqli_fetch_assoc($dairy_free_result)) {
+            while ($dairy_free_record = mysqli_fetch_assoc($dairy_free_result)) {
                 echo "<br>" . $dairy_free_record['food'] . ":<br>";
                 echo "Price: $" . $dairy_free_record['cost'] . "<br>";
+                if ($dairy_free_record['avalible'] == 'no') {
+                    echo "--- Not Avalible ---" . "<br>";
+                }
+                if ($dairy_free_record['avalible'] == 'yes') {
+                    echo "--- Avalible ---" . "<br>";
+                }
             }
         }
         if(isset($_POST['Vegetarian'])){

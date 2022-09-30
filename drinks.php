@@ -34,15 +34,16 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
         <h1>Wellington Girls' College Canteen</h1>
     </div>
     <div class="logo">
-        <aone href="home.php">
+        <a class="two" href="home.php">
             <img src="Images/wgclogo.png" width="121.5" height="121.5">
-        </aone>
+        </a>
     </div>
     <div class="nav">
         <nav>
-            <a href="home.php"> Home </a>
-            <a href="drinks.php"> Drinks </a>
-            <a href="food.php"> Food </a>
+            <a class ="one" href="home.php"> Home </a>
+            <a class ="one" href="drinks.php"> Drinks </a>
+            <a class ="one" href="food.php"> Food </a>
+            <a class ="one" href="diets.php"> Diets</a>
         </nav>
     </div>
     <div class="special">
@@ -55,7 +56,6 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
                 echo "--- Dairy product ---" . "<br>";
             }
         }
-
         ?>
         <h3>Not available:</h3>
         <?php
@@ -65,16 +65,14 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
                 echo "--- Dairy product ---" . "<br>";
             }
         }
-
         ?>
-
     </div>
     <div class="footer">
         <?php
         if($database_connection == TRUE){
-            echo "connected to database";}
+            echo "Connected to database";}
         ?>
-        Ⓒ
+        <p>Wellington Girls' College Canteen Ⓒ</p>
     </div>
 </div>
 </body>
