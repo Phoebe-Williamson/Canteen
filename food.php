@@ -35,10 +35,11 @@ $not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
     </div>
     <div class="logo">
         <a class="two" href="home.php">
-            <img src="Images/wgclogo.png" width="121.5" height="121.5">
+            <img src="Images/wgclogo.png" alt="wellington girls college logo" width="122" height="122">
         </a>
     </div>
     <div class="nav">
+        <br>
         <nav>
             <a class ="one" href="home.php"> Home </a>
             <a class ="one" href="drinks.php"> Drinks </a>
@@ -51,12 +52,12 @@ $not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
         <?php
         while($food_record = mysqli_fetch_assoc($food_result)){
             echo "<br>" . $food_record['food'] . ":<br>";
-            echo "Price :$". $food_record['cost'] . "<br>";
+            echo "Price: $". $food_record['cost'] . "<br>";
             if($food_record['df'] == 'yes') {
-                echo "--- Dairy Free ---" . "<br>";
+                echo "--- Dairy-Free ---" . "<br>";
             }
             if($food_record['gf'] == 'yes'){
-                echo "--- Gluten Free ---" . "<br>";
+                echo "--- Gluten-Free ---" . "<br>";
             }
             if($food_record['v'] == 'yes'){
                 echo "--- Vegetarian ---" . "<br>";
@@ -65,17 +66,17 @@ $not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
         ?>
     </div>
     <div class="foodright">
-        <h2>Not Available:</h2>
+        <h2>Out of Stock:</h2>
         <?php
         while($not_availabale_food_record = mysqli_fetch_assoc($not_availabale_food_result)){
             echo "<br>" . $not_availabale_food_record['food'] . ":<br>";
-            echo "Price :$". $not_availabale_food_record['cost'] . "<br>";
+            echo "Price: $". $not_availabale_food_record['cost'] . "<br>";
             /* echo "Desrciption: " . $not_available_food_record['description'] . "<br>"; */
             if($not_availabale_food_record['df'] == 'yes') {
-                echo "--- Dairy Free ---" . "<br>";
+                echo "--- Dairy-Free ---" . "<br>";
             }
             if($not_availabale_food_record['gf'] == 'yes'){
-                echo "--- Gluten Free ---" . "<br>";
+                echo "--- Gluten-Free ---" . "<br>";
             }
             if($not_availabale_food_record['v'] == 'yes'){
                 echo "--- Vegetarian ---" . "<br>";
@@ -88,6 +89,7 @@ $not_availabale_food_result = mysqli_query($dbcon, $not_availabale_food_query)
         if($database_connection == TRUE){
             echo "connected to database";}
         ?>
+        <p>Wellington Girls' College Canteen - All Rights Reserved Ⓒ</p>
     </div>
 </div>
 </body>

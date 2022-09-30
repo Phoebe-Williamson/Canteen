@@ -38,10 +38,11 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
     </div>
     <div class="logo">
         <a class="two" href="home.php">
-            <img src="Images/wgclogo.png" width="121.5" height="121.5">
+            <img src="Images/wgclogo.png" alt="wellington girls college logo" width="122" height="122">
         </a>
     </div>
     <div class="nav">
+        <br>
         <nav>
             <a class ="one" href="home.php"> Home </a>
             <a class ="one" href="drinks.php"> Drinks </a>
@@ -51,32 +52,33 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
     </div>
     <div class="special">
         <h2>Diets</h2>
-        <p>Click a diet option to choose a diet</p>
+        <!-- Info so that the end users know what to do when they go on the diets page -->
+        <p>Click the links below to get options for your dietary requirements</p>
         <!-- I have gotten the information for the buttons from  geeksforgeeks, the link being:
              https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
         <form method="post">
             <input type="submit" name="Gluten"
-                   value="Gluten Free"/>
+                   value="Gluten-Free"/>
             <input type="submit" name="Dairy"
-                   value="Dairy Free"/>
+                   value="Dairy-Free"/>
             <input type="submit" name="Vegetarian"
                    value="Vegetarian"/>
         </form>
         <p>------------------------------------------------</p>
         <?php
         if(isset($_POST['Gluten'])) {
-            echo "<h3>Gluten Free Food </h3>";
+            echo "<h3>Gluten-Free Food </h3>";
             while ($gluten_free_record = mysqli_fetch_assoc($gluten_free_result)) {
                 echo "<br>" . $gluten_free_record['food'] . ":<br>";
                 echo "Price: $" . $gluten_free_record['cost'] . "<br>";
                 if ($gluten_free_record['avalible'] == 'no') {
-                    echo "--- Not Avalible ---" . "<br>";
+                    echo "--- Out of Stock ---" . "<br>";
                 }
                 if ($gluten_free_record['avalible'] == 'yes') {
-                    echo "--- Avalible ---" . "<br>";
+                    echo "--- Available ---" . "<br>";
                 }
             }
-            echo "<h3>All drinks are Gluten Free</h3>";
+            echo "<h3>All drinks are Gluten-Free</h3>";
         }
         if(isset($_POST['Dairy'])) {
             echo "<h3>Dairy Free products:</h3>";
@@ -84,10 +86,10 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
                 echo "<br>" . $dairy_free_record['food'] . ":<br>";
                 echo "Price: $" . $dairy_free_record['cost'] . "<br>";
                 if ($dairy_free_record['avalible'] == 'no') {
-                    echo "--- Not Avalible ---" . "<br>";
+                    echo "--- Out of Stock ---" . "<br>";
                 }
                 if ($dairy_free_record['avalible'] == 'yes') {
-                    echo "--- Avalible ---" . "<br>";
+                    echo "--- Available ---" . "<br>";
                 }
             }
         }
@@ -97,10 +99,10 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
                 echo "<br>" . $vegetarian_record['food'] . ":<br>";
                 echo "Price: $" . $vegetarian_record['cost'] . "<br>";
                 if($vegetarian_record['avalible'] == 'no'){
-                    echo "--- Not Avalible ---" . "<br>";
+                    echo "--- Out of Stock ---" . "<br>";
                 }
                 if($vegetarian_record['avalible'] == 'yes'){
-                    echo "--- Avalible ---" . "<br>";
+                    echo "--- Available ---" . "<br>";
                 }
             }
             echo "<h3>All drinks are vegetarian</h3>";
@@ -113,6 +115,7 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
             echo "connected to database";}
 
         ?>
+        <p>Wellington Girls' College Canteen - All Rights Reserved Ⓒ</p>
     </div>
 </div>
 </body>

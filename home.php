@@ -50,6 +50,7 @@ $drink_special_result = mysqli_query($dbcon, $drink_special_query)
 <head>
     <meta charset="utf-8">
     <title>Home Page - WGC Canteen</title>
+    <!-- links style sheet to the page -->
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -58,12 +59,15 @@ $drink_special_result = mysqli_query($dbcon, $drink_special_query)
         <h1>Wellington Girls' College Canteen</h1>
     </div>
     <div class="logo">
+        <!-- image class link -->
         <a class="two" href="home.php">
-            <img src="Images/wgclogo.png" width="121.5" height="121.5">
+            <img src="Images/wgclogo.png" alt="wellington girls college logo" width="122" height="122">
         </a>
     </div>
     <div class="nav">
+        <br>
         <nav>
+            <!-- links to the pages -->
             <a class ="one" href="home.php"> Home </a>
             <a class ="one" href="drinks.php"> Drinks </a>
             <a class ="one" href="food.php"> Food </a>
@@ -72,16 +76,17 @@ $drink_special_result = mysqli_query($dbcon, $drink_special_query)
     </div>
     <div class="special">
         <h2>Weekly specials:</h2>
+        <!-- all my weekly specials -->
         <?php
         /* Dairy free query being shown on website*/
         while($dairy_free_record = mysqli_fetch_assoc($dairy_free_result)){
-            echo "Dairy Free Special:<br>";
+            echo "Dairy-Free Special:<br>";
             echo $dairy_free_record['food'] . "<br>";
             echo "Price: $" .$dairy_free_record['Cost'] . "<br>";
         }
         /* Gluten-free query being shown on website*/
         while($gluten_free_record = mysqli_fetch_assoc($gluten_free_result)){
-            echo "<p> Gluten Free Special:<br>";
+            echo "<p> Gluten-Free Special:<br>";
             echo  $gluten_free_record['food'] . "<br>";
             echo "Price: $" .$gluten_free_record['Cost'] . "<br>";
         }
@@ -108,11 +113,13 @@ $drink_special_result = mysqli_query($dbcon, $drink_special_query)
         ?>
     </div>
     <div class="footer">
+        <!-- footer which displays database connection and copyright -->
         <?php
         if($database_connection == TRUE){
             echo "connected to database";}
 
         ?>
+        <p>Wellington Girls' College Canteen - All Rights Reserved Ⓒ</p>
     </div>
 </div>
 </body>

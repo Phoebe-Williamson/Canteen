@@ -35,10 +35,11 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
     </div>
     <div class="logo">
         <a class="two" href="home.php">
-            <img src="Images/wgclogo.png" width="121.5" height="121.5">
+            <img src="Images/wgclogo.png" alt="wellington girls college logo" width="122" height="122">
         </a>
     </div>
     <div class="nav">
+        <br>
         <nav>
             <a class ="one" href="home.php"> Home </a>
             <a class ="one" href="drinks.php"> Drinks </a>
@@ -51,16 +52,21 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
         <h3>Available:</h3>
         <?php
         while($available_drink_record = mysqli_fetch_assoc($available_drink_result)){
-            echo "<br>" . $available_drink_record['drink'] . "<br>";
+            echo $available_drink_record['drink'] . "<br>";
+            echo "Price: $" . $available_drink_record['cost'] . "<br>" ;
             if($available_drink_record['df'] == 'no') {
-                echo "--- Dairy product ---" . "<br>";
+                echo "--- Dairy product ---" . "<br>" . "<br>";
+            }
+            else{
+                echo "<br>";
             }
         }
         ?>
-        <h3>Not available:</h3>
+        <h3>Out of Stock:</h3>
         <?php
         while($not_available_drink_record = mysqli_fetch_assoc($not_available_drink_result)){
             echo "<br>" . $not_available_drink_record['drink'] . "<br>";
+            echo "Price: $" . $not_available_drink_record['cost'] . "<br>";
             if($not_available_drink_record['df'] == 'no'){
                 echo "--- Dairy product ---" . "<br>";
             }
@@ -72,7 +78,7 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
         if($database_connection == TRUE){
             echo "Connected to database";}
         ?>
-        <p>Wellington Girls' College Canteen Ⓒ</p>
+        <p>Wellington Girls' College Canteen - All Rights Reserved Ⓒ</p>
     </div>
 </div>
 </body>
