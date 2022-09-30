@@ -1,14 +1,12 @@
 /* CSS Style Sheet */
 
 .grid {
-    width: 1520px;
-    height: 840px;
     /* Declare the grid container */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0.5fr 5fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 0.5fr 4fr 2fr 0.5fr 0.5fr;
     background-color: lightgray;
-
+    font-family: sans-serif;
 }
 /* grid sections for all pages */
 .header{
@@ -20,6 +18,7 @@
     background-color: teal;
     text-align: center;
     font-size: 20px;
+    font-family: sans-serif;
 }
 .logo{
     grid-column-start: 1;
@@ -35,30 +34,82 @@
     grid-row-end: 3;
     text-align: center;
     background-color: grey;
+    font-family: sans-serif;
+    align-content: center;
+    text-margin-top: 20px;
 }
 .footer{
     color: white;
-    background-color: black;
+    background-color: teal;
     grid-column-start: 1;
     grid-column-end: 5;
-    grid-row-start: 5;
-    grid-row-end: 6;
-}
+    grid-row-start: 6;
+    grid-row-end: 7;
+    font-family: SansSerif;
 
+}
+/* main space on home, drinks and diets page*/
 .special{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-end: 6;
+    background-color: white;
+    text-align: center;
+    text-decoration: black;
+    font-size: 20px;
+    font-family: SansSerif;
+}
+/**/
+a.one{
+    font-size: 17px;
+    padding: 10px;
+    background-color: teal;
+    border: 3px solid black;
+    margin-top: 20px;
+    color: white;
+    width: 200px;
+    border-radius: 0px;
+    font-family: sans-serif;
+    text-decoration: none;
+    margin-right: 20px;
+}
+/*Tag and link for the logo to bring to home page, need to be different as a.one had a square border and it was
+  present on the image*/
+a.two{
+    font-family: SansSerif;
+    text-decoration: none;
+}
+/* Different layout for the food page */
+.foodleft{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 6;
     background-color: white;
     text-align: center;
     font-size: 17px;
+    font-family: SansSerif;
 }
-a{
-    border-style: solid;
-    border-radius: 0px;
-    border-width: 4px;
-    border-color: black;
-    font-family: Arial;
-    text-decoration: none;
+.foodright{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    background-color: white;
+    text-align: center;
+    font-size: 17px;
+    font-family: SansSerif;
+}
+/* Changing the button for the diets page so it isn't just the normal grey button*/
+input{
+    font-family: SansSerif;
+    font-size: 17px;
+    padding: 15px;
+    background-color: teal;
+    border: 3px solid black;
+    border-radius: 3px;
+    margin-top: 20px;
+    color: white;
+    width: 200px;
 }
