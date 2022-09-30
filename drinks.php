@@ -7,20 +7,19 @@ if($dbcon == NULL){
 else{
     $database_connection = TRUE;}
 
-/* Available food query */
+/* Available drink query */
 $available_drink_query = "SELECT drink, cost, description, df 
                           FROM drinks
                           WHERE avalible = 'yes'";
 $available_drink_result = mysqli_query($dbcon, $available_drink_query);
 
-/* Not available query */
+/* Not available drink query */
 $not_available_drink_query = "SELECT drink, cost, description, df 
                               FROM drinks 
                               WHERE avalible = 'no'";
 $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
 ?>
 <!DOCTYPE html>
-<!-- -->
 <!--Html code -->
 <html lang="en">
 <head>
@@ -39,6 +38,7 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
         </a>
     </div>
     <div class="nav">
+        <!-- image class link -->
         <br>
         <nav>
             <a class ="one" href="home.php"> Home </a>
@@ -54,7 +54,7 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
         while($available_drink_record = mysqli_fetch_assoc($available_drink_result)){
             echo $available_drink_record['drink'] . "<br>";
             echo "Price: $" . $available_drink_record['cost'] . "<br>" ;
-            if($available_drink_record['df'] == 'no') {
+            if($available_drink_record['df'] == 'no') { /* checks if the product contain dairy*/
                 echo "--- Dairy product ---" . "<br>" . "<br>";
             }
             else{
@@ -67,13 +67,14 @@ $not_available_drink_result = mysqli_query($dbcon, $not_available_drink_query)
         while($not_available_drink_record = mysqli_fetch_assoc($not_available_drink_result)){
             echo "<br>" . $not_available_drink_record['drink'] . "<br>";
             echo "Price: $" . $not_available_drink_record['cost'] . "<br>";
-            if($not_available_drink_record['df'] == 'no'){
+            if($not_available_drink_record['df'] == 'no'){ /* checks if the product contains dairy*/
                 echo "--- Dairy product ---" . "<br>";
             }
         }
         ?>
     </div>
     <div class="footer">
+        <!-- footer which displays database connection and copyright -->
         <?php
         if($database_connection == TRUE){
             echo "Connected to database";}

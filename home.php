@@ -44,7 +44,6 @@ $drink_special_result = mysqli_query($dbcon, $drink_special_query)
 
 ?>
 <!DOCTYPE html>
-<!-- -->
 <!--Html code -->
 <html lang="en">
 <head>

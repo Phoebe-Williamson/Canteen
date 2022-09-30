@@ -7,16 +7,19 @@ if($dbcon == NULL){
 else{
     $database_connection = TRUE;}
 
+/* gluten free query*/
 $gluten_free_query = "SELECT food, cost, df, gf, v, avalible
                       FROM food
                       WHERE gf = 'yes'";
 $gluten_free_result = mysqli_query($dbcon, $gluten_free_query);
 
+/*dairy free query*/
 $dairy_free_query = "SELECT food, cost, df, gf, v, avalible
                      FROM food
                      WHERE df = 'yes'";
 $dairy_free_result = mysqli_query($dbcon, $dairy_free_query);
 
+/* vegetarian query*/
 $vegetarian_query = "SELECT food, cost, df, gf, v, avalible
                      FROM food
                      WHERE v = 'yes'";
@@ -37,6 +40,7 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
         <h1>Wellington Girls' College Canteen</h1>
     </div>
     <div class="logo">
+        <!-- image class link -->
         <a class="two" href="home.php">
             <img src="Images/wgclogo.png" alt="wellington girls college logo" width="122" height="122">
         </a>
@@ -57,6 +61,7 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
         <!-- I have gotten the information for the buttons from  geeksforgeeks, the link being:
              https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
         <form method="post">
+            <!-- Makes the buttons -->
             <input type="submit" name="Gluten"
                    value="Gluten-Free"/>
             <input type="submit" name="Dairy"
@@ -71,24 +76,24 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
             while ($gluten_free_record = mysqli_fetch_assoc($gluten_free_result)) {
                 echo "<br>" . $gluten_free_record['food'] . ":<br>";
                 echo "Price: $" . $gluten_free_record['cost'] . "<br>";
-                if ($gluten_free_record['avalible'] == 'no') {
+                if ($gluten_free_record['avalible'] == 'no') { /* checks if it is out of stock*/
                     echo "--- Out of Stock ---" . "<br>";
                 }
-                if ($gluten_free_record['avalible'] == 'yes') {
+                if ($gluten_free_record['avalible'] == 'yes') { /* checks if it is available */
                     echo "--- Available ---" . "<br>";
                 }
             }
             echo "<h3>All drinks are Gluten-Free</h3>";
         }
-        if(isset($_POST['Dairy'])) {
+        if(isset($_POST['Dairy'])) { /* checks is it is dairy free*/
             echo "<h3>Dairy Free products:</h3>";
             while ($dairy_free_record = mysqli_fetch_assoc($dairy_free_result)) {
                 echo "<br>" . $dairy_free_record['food'] . ":<br>";
                 echo "Price: $" . $dairy_free_record['cost'] . "<br>";
-                if ($dairy_free_record['avalible'] == 'no') {
+                if ($dairy_free_record['avalible'] == 'no') { /* checks if it is out of stock*/
                     echo "--- Out of Stock ---" . "<br>";
                 }
-                if ($dairy_free_record['avalible'] == 'yes') {
+                if ($dairy_free_record['avalible'] == 'yes') { /* checks if it is available */
                     echo "--- Available ---" . "<br>";
                 }
             }
@@ -98,10 +103,10 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
             while($vegetarian_record = mysqli_fetch_assoc($vegetarian_result)) {
                 echo "<br>" . $vegetarian_record['food'] . ":<br>";
                 echo "Price: $" . $vegetarian_record['cost'] . "<br>";
-                if($vegetarian_record['avalible'] == 'no'){
+                if($vegetarian_record['avalible'] == 'no'){ /* checks if it is out of stock*/
                     echo "--- Out of Stock ---" . "<br>";
                 }
-                if($vegetarian_record['avalible'] == 'yes'){
+                if($vegetarian_record['avalible'] == 'yes'){ /* checks if it is available */
                     echo "--- Available ---" . "<br>";
                 }
             }
@@ -110,6 +115,7 @@ $vegetarian_result = mysqli_query($dbcon, $vegetarian_query);
         ?>
     </div>
     <div class="footer">
+        <!-- footer which displays database connection and copyright -->
         <?php
         if($database_connection == TRUE){
             echo "connected to database";}
